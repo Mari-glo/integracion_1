@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { cartsModel } from "../models/carts.molel";
+import { cartsModel } from "../dao/memory/mongo/models/carts.molel";
 
 const router = Router();
 

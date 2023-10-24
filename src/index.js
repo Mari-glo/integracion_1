@@ -3,11 +3,11 @@ import { engine } from "express-handlebars"
 import * as path from "path"
 import __dirname from "./utils.js"
 import {Server} from "socket.io"
-import mongoose from "mongoose"
-import cartsRouter from "./router/carts.routes.js"
-import messagesRouter from "./router/messages.routes.js"
-import productsRouter from "./router/products.routes.js"
-import uploadRouter from "./router/upload.routes.js"
+import { mongoDBConnection } from "./config/config.js"
+//import cartsRouter from "./router/carts.routes.js"
+//import messagesRouter from "./router/messages.routes.js"
+import router from "../src/router/product.routes.js"
+import uploadRouter from "../src/router/upload.routers.js"
 
 
 const app = express()
@@ -15,13 +15,7 @@ const app = express()
 //Se define puerto 8080 para ejecutar la aplicacion
 const PORT = 8080
 
-mongoose.connect('url mongodb+srv://marigloria:<multimillonaria6274>@cluster0.m5h61df.mongodb.net/?retryWrites=true&w=majority')
-.then(()=>{
-    console.log("Conectado a la base de datos")
-})
-.catch(error => {
-    console.error("Error al conectarse a la base de datos, error"+error)
-})
+mongoDBConnection();
 
 app.use(express.json())
 app.use(express.urlencoded({extended: true}))
@@ -31,9 +25,9 @@ const httpServer = app.listen(PORT, () => {
 })
 
 
-app.use("/api/carts", cartsRouter)
-app.use("/api/message", messagesRouter)
-app.use("/api/product", productsRouter)
+//app.use("/api/carts", cartsRouter)
+//app.use("/api/message", messagesRouter)
+app.use("/api/product", router)
 
 app.use("/", uploadRouter) 
 
