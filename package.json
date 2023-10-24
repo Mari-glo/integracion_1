@@ -1,0 +1,27 @@
+{
+  "name": "ejercicio_4",
+  "version": "1.0.0",
+  "description": "- Servidor express\r - multer para subir archivos\r - integración con mongo DB -> mongoose",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "nodemon src/index.js"
+  },
+  "keywords": [],
+  "author": "mari",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "express-handlebars": "^7.1.2",
+    "mongoose": "^7.6.3",
+    "multer": "^1.4.5-lts.1",
+    "nanoid": "^5.0.1",
+    "npm-run-all": "^4.1.5",
+    "sass": "^1.67.0",
+    "socket.io": "^4.7.2",
+    "sweetalert2": "^11.7.31"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
+}
